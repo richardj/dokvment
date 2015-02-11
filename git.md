@@ -22,4 +22,23 @@ alias gogitgetgo="git add -A ; git commit -m 'this is a dangerous commit' ; git 
 Because sometimes you don't have time to check your work.
 Disclaimer: this can destroy everything you worked for.
 
+## Failing push
+
+Remote repositories can be a weird bunch, when you get the following message:
+
+```
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic,keyboard-interactive).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+That might be because you are using a custom key, might have to re-add it, just use:
+
+```
+ssh-add path-to-private-key
+```
+
+and push away!
 
