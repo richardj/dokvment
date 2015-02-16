@@ -20,3 +20,30 @@ Just do something like:
 ```
 
 And you should be good to go! Found of course on [stackoverflow](http://stackoverflow.com/questions/18446359/angularjs-does-not-send-hidden-field-value)
+
+## Asynchronous and Promises
+
+
+So you can do this asynchronous stuff which for me just sounds like "get stuff from somewhere". Now you have success and error callbacks, promises, something with q and a some kind of .then notation (which sounds like a very bad way of writing a story).
+
+here goes
+
+```
+
+// this
+$http.get('/api/v1/movies/avengers')
+  .success(function(data, status, headers, config) {
+     $scope.movieContent = data;
+  });
+ 
+// is the same as
+var promise = $http.get('/api/v1/movies/avengers');
+ 
+promise.then(
+  function(payload) {
+    $scope.movieContent = payload.data;
+  });
+
+```
+
+I don't know the specifics and why there are different methods, but the then notation seems to be the latest and greatest, so we'll use that for now.
